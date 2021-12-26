@@ -31,7 +31,7 @@
                 <p>The winning potential of this list is <code><em>45</em></code>.</p>
                 <p><em>What is the winning potential of your fruit list?</em></p>
 				<p class="part1-prompt">To begin, <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
-				<p class="part1-ans hidden">Your puzzle answer was <code>5033</code>.</p>
+				<p class="part1-ans hidden">Your puzzle answer was <code id="part1-ans-val"></code>.</p>
 				<p class="part1-star hidden"><em style="color:#ffff00">The first part of the puzzle is complete! It provides one gold star: *</em></p>
                 <div class="part2 hidden">
                     <h2>--- Part Two ---</h2>
@@ -59,12 +59,47 @@
                     <p><em>What is the final score of your fruit list?</em></p>
                 </div>
 				<p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
-                <p class="part2-ans hidden">Your puzzle answer was <code>7326</code>.</p>
+                <p class="part2-ans hidden">Your puzzle answer was <code id="part2-ans-val"></code>.</p>
 				<p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold stars: **</em></p>
 				<p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
                 <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span></p>
             </article>
         </body>
+        <script>
+        let p1ans = "5033";
+        let p2ans = "7326";
+        let hide = (...rest) => [...rest].forEach(n => document.querySelector(n).classList.add("hidden"))
+        let show = (...rest) => [...rest].forEach(n => document.querySelector(n).classList.remove("hidden"))
+
+        document.querySelector("#part1-ans-val").innerHTML = p1ans;
+        document.querySelector("#part2-ans-val").innerHTML = p2ans;
+
+        solvedPart1 = false
+        function submit() {
+            switch(document.querySelector("#owo").value.trim()) {
+                case p1ans:
+                    if (!solvedPart1) {
+                        solvedPart1 = true
+                        alert("Your answer is correct! Part 2 has been unlocked.");
+                        hide(".part1-prompt");
+                        show(".part1-ans", ".part2", ".part2-prompt", ".part1-star");
+                        break;
+                    } else {
+                        alert("Your answer is incorrect.");
+                        break;
+                    }
+                case p2ans:
+                    if (solvedPart1) {
+                        alert("Your answer is correct! You have completed the problem!");
+                        hide(".part2-prompt", ".part1-star", ".submit-module");
+                        show(".part2-ans", ".end-prompt", ".part2-star");
+                        break;
+                    }
+                default:
+                    alert("Your answer is incorrect.");
+            }
+        }
+        </script>
         <style>
             .hidden {
                 display: none;
@@ -148,39 +183,5 @@
                 outline: 0;
             }
         </style>
-        <script>
-        solvedPart1 = false
-            function submit() {
-                switch(document.querySelector("#owo").value.trim()) {
-                    case "5033":
-                        if (!solvedPart1) {
-                            solvedPart1 = true
-                            alert("Your answer is correct! Part 2 has been unlocked.");
-							document.querySelector(".part1-ans").classList.remove("hidden");
-                            document.querySelector(".part2").classList.remove("hidden");
-							document.querySelector(".part1-prompt").classList.add("hidden");
-							document.querySelector(".part2-prompt").classList.remove("hidden");
-							document.querySelector(".part1-star").classList.remove("hidden");
-                            break;
-                        } else {
-                            alert("Your answer is incorrect.");
-                            break;
-                        }
-                    case "7326":
-                        if (solvedPart1) {
-                            alert("Your answer is correct! You have completed the problem!");
-                            document.querySelector(".part2-ans").classList.remove("hidden");
-							document.querySelector(".part2-prompt").classList.add("hidden");
-							document.querySelector(".end-prompt").classList.remove("hidden");
-							document.querySelector(".part1-star").classList.add("hidden");
-							document.querySelector(".part2-star").classList.remove("hidden");
-                            document.querySelector(".submit-module").classList.add("hidden");
-                            break;
-                        }
-                    default:
-                        alert("Your answer is incorrect.");
-                }
-            }
-        </script>
     </body>
 </html>
