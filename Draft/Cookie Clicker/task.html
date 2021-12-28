@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,700;1,300&display=swap"
+          rel="stylesheet">
+    <title>Day 22 - Advent of ICT</title>
+</head>
+<body>
+<body>
+<article class="">
+    <h2>--- Day 22: Cookie Clicker ---</h2>
+    <p>Your local town is hosting a <a class="link" href="https://orteil.dashnet.org/cookieclicker/" target ="_blank">cookie clicking</a> competition! The person who could bake the most cookies will win two cookies in the shape of <em style="color:yellow">stars</em>.</p>
+    <p>In the competition, you are initially provided with some <em>cookies</em>, which you could use to purchase a variety of <em>tools</em> to bake more cookies. These tools will each have an <em>initial cost</em> and a <em>productivity value</em>, measured in <em>cookies per step</em> (CpS). These stats will be shown in your puzzle input. For example:</p>
+<pre><code>you have 15 cookies
+cursor: initial cost: 15, CpS: 1
+grandma: initial cost: 100, CpS: 10
+farm: initial cost: 1100, CpS: 80
+mine: initial cost: 12000, CpS: 470</code></pre>
+    <p>For now, just focus on <em>cursors</em> and ignore everything else.</p>
+    <p>Your goal is to simulate the competition in <em>steps</em>. On each step, the following happens, in order:</p>
+    <ul>
+        <li>Each cursor you own <em>increases</em> the number of cookies. That is, if you have <code>10</code> cursors, your will gain <code>10 * 1 = 10</code> cookies.</li>
+        <li>If you have enough cookies, <em>spend</em> cookies to buy a cursor.</li>
+        <li>If a cursor is bought, the cost of the next cursor is <em>updated</em> by raising 1.15 to the power of the number of cursors you own, then multiplied by the initial cost of cursors, rounded down to the nearest integer. </li>
+    </ul>
+    <p>Using the example above, the following would happen:</p>
+<pre><code>0 cursors produced 0 cookies.
+Purchased 1 cursor using 15 cookies.
+Next cursor costs 15 * 1.15 ^ 1 = 17.25 cookies (rounded down to 17).
+After step 1: 0 cookies, <em>1 cursor</em>
+</code></pre>
+<pre><code>1 cursor produced 1 cookie.
+After step 2: 1 cookie, 1 cursor
+</code></pre>
+<pre><code>1 cursor produced 1 cookie.
+After step 3: 2 cookies, 1 cursor
+</code></pre>
+    <pre><code>1 cursor produced 1 cookie.
+After step 4: 3 cookies, 1 cursor
+</code></pre>
+    <p>For the next couple of steps, nothing happens except for the <code>1</code> cursor providing <code>1</code> cookie per step, until step 18:</p>
+    <pre><code>1 cursor produced 1 cookie.
+After step 17: 16 cookies, 1 cursor
+</code></pre>
+    <pre><code>1 cursor produced 1 cookie.
+Purchased 1 cursor using 17 cookies.
+Next cursor costs 15 * 1.15 ^ 2 = 19.84 cookies (rounded down to 19).
+After step 18: 0 cookies, <em>2 cursors</em>
+</code></pre>
+    <pre><code>2 cursors produced 2 cookies.
+After step 19: 2 cookies, 2 cursors
+</code></pre>
+    <p>Here are some other steps where cursors are purchased:</p>
+    <pre><code>2 cursors produced 2 cookies.
+After step 27: 18 cookies, 2 cursors
+</code></pre>
+    <pre><code>2 cursors produced 2 cookies.
+Purchased 1 cursor using 19 cookies.
+Next cursor costs 15 * 1.15 ^ 3 = 22.81 cookies (rounded down to 22).
+After step 28: 1 cookie, <em>3 cursors</em>
+</code></pre>
+    <pre><code>3 cursors produced 3 cookies.
+After step 29: 4 cookies, 3 cursors
+</code></pre>
+    <p>...</p>
+    <pre><code>3 cursors produced 3 cookies.
+After step 34: 19 cookies, 3 cursors
+</code></pre>
+    <pre><code>3 cursors produced 3 cookies.
+Purchased 1 cursor using 22 cookies.
+Next cursor costs 15 * 1.15 ^ 4 = 26.24 cookies (rounded down to 26).
+After step 35: 0 cookies, <em>4 cursors</em>
+</code></pre>
+    <pre><code>4 cursors produced 4 cookies.
+After step 36: 4 cookies, 4 cursors
+</code></pre>
+    <p>...</p>
+    <pre><code>4 cursors produced 4 cookies.
+After step 41: 24 cookies, 4 cursors
+</code></pre>
+    <pre><code>4 cursors produced 4 cookies.
+Purchased 1 cursor using 26 cookies.
+Next cursor costs 15 * 1.15 ^ 5 = 30.17 cookies (rounded down to 30).
+After step 42: 2 cookies, <em>5 cursors</em>
+</code></pre>
+    <pre><code>5 cursors produced 5 cookies.
+After step 43: 7 cookies, 5 cursors
+</code></pre>
+    <p>The cost of cursors increases <em>exponentially</em>. The last time a cursor is purchased is on step 919:</p>
+    <pre><code>39 cursors produced 39 cookies.
+After step 918: 3458 cookies, 39 cursors
+</code></pre>
+    <pre><code>39 cursors produced 39 cookies.
+Purchased 1 cursor using 3493 cookies.
+Next cursor costs 15 * 1.15 ^ 40 = 4017.95 cookies (rounded down to 4017).
+After step 919: 4 cookies, <em>40 cursors</em>
+</code></pre>
+    <pre><code>40 cursors produced 40 cookies.
+After step 920: 44 cookies, 40 cursors
+</code></pre>
+    <p>In the end:</p>
+    <pre><code>40 cursors produced 40 cookies.
+After step 1000: 3244 cookies, 40 cursors
+</code></pre>
+    <p>After 1000 steps, you have <code><em>3244</em></code> cookies.</p>
+    <p>Simulate the competition. <em>How many cookies do you have after 1000 steps?</em></p>
+    <p class="part1-prompt">To begin, <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
+    <p class="part1-ans hidden">Your puzzle answer was <code id="part1-ans-val"></code>.</p>
+    <p class="part1-star hidden"><em style="color:#ffff00">The first part of the puzzle is complete! It provides one
+        gold star: *</em></p>
+    <div class="part2 hidden">
+        <h2>--- Part Two ---</h2>
+        <p>Maybe using only cursors wasn't a good idea; there are tools that produce far more cookies, albeit for a larger price. You decide to check out the other tools.</p>
+        <p>Now, what happens in a step is slightly different. In order:</p>
+<ul>
+    <li>The tools you own <em>increases</em> the number of cookies. If you have <code>10</code> cursors and <code>5</code> grandmas, your will gain <code>10 * 1 + 5 * 10 = 60</code> cookies.</li>
+    <li>Find the item with the <em>lowest cost</em>. If you have enough cookies to buy it, buy it.</li>
+    <li>If an item is bought, the cost of the next item is <em>updated</em> by raising 1.15 to the power of the number of that item you own, then multiplied by the initial cost of that item, rounded down to the nearest integer. </li>
+</ul>
+        <p>Using the above example again, the initial steps are the same, because the price of cursors are kept below the price of grandmas, resulting in cursors being purchased. However, at step 97, the price of cursors exceed the price of grandmas:</p>
+<pre><code>13 cursors produced 13 cookies.
+Purchased 1 cursor using 92 cookies.
+Next cursor costs 15 * 1.15 ^ 14 = 106.14 cookies (rounded down to 106).
+After step 97: 5 cookies, <em>14 cursors</em>
+</code></pre>
+        <p>The price of cursors is now <code>106</code> while that of grandmas is <code>100</code> (the initial cost). Therefore, the next <span title="Please don't call your grandma a tool.">tool</span> to purchase is a <em>grandma</em>, which is purchased at step 104:</p>
+<pre><code>14 cursors produced 14 cookies.
+Purchased 1 grandma using 100 cookies.
+Next grandma costs 100 * 1.15 ^ 1 = 115 cookies.
+After step 104: 3 cookies, 14 cursors, <em>1 grandma</em>
+</code></pre>
+        <p>From here, the grandma will work hard and bake <code>10</code> cookies per step, which, combined with the <code>14</code> cursors, gives you <code>24</code> CpS in total:</p>
+<pre><code>14 cursors produced 14 cookies.
+1 grandma produced 10 cookies.
+After step 105: 27 cookies, 14 cursors, 1 grandma
+</code></pre>
+        <p>The cost of grandmas has also risen to <code>115</code> cookies, which is higher than that of cursors (<code>106</code> cookies), so we go back to buying cursors:</p>
+<pre><code>14 cursors produced 14 cookies.
+1 grandma produced 10 cookies.
+Purchased 1 cursor using 106 cookies.
+Next cursor costs 15 * 1.15 ^ 15 = 122.06 cookies (rounded down to 122).
+After step 109: 17 cookies, <em>15 cursors</em>, 1 grandma
+</code></pre>
+        <p>And so forth:</p>
+<pre><code>15 cursors produced 15 cookies.
+1 grandma produced 10 cookies.
+Purchased 1 grandma using 115 cookies.
+Next grandma costs 100 * 1.15 ^ 2 = 132.25 cookies (rounded down to 132).
+After step 113: 2 cookies, 15 cursors, <em>2 grandmas</em>
+</code></pre>
+        <p>...</p>
+<pre><code>15 cursors produced 15 cookies.
+2 grandmas produced 20 cookies.
+Purchased 1 cursor using 122 cookies.
+Next cursor costs 15 * 1.15 ^ 16 = 140.36 cookies (rounded down to 140).
+After step 117: 20 cookies, <em>16 cursors</em>, 2 grandmas
+</code></pre>
+        <p>...</p>
+<pre><code>16 cursors produced 16 cookies.
+2 grandmas produced 20 cookies.
+Purchased 1 grandma using 132 cookies.
+Next grandma costs 100 * 1.15 ^ 3 = 152.09 cookies (rounded down to 152).
+After step 121: 32 cookies, 16 cursors, <em>3 grandmas</em>
+</code></pre>
+        <p>This continues, the purchasing gradually slowing down, until the first <em>farm</em> is purchased at step 232:</p>
+<pre><code>31 cursors produced 31 cookies.
+18 grandmas produced 180 cookies.
+Purchased 1 farm using 1100 cookies.
+Next farm costs 1100 * 1.15 ^ 1 = 1265 cookies.
+After step 232: 167 cookies, 31 cursors, 18 grandmas, <em>1 farm</em>
+</code></pre>
+        <p>The cookie production really starts to ramp up. The first <em>mine</em> is purchased at step 453:</p>
+<pre><code>48 cursors produced 48 cookies.
+35 grandmas produced 350 cookies.
+18 farms produced 1440 cookies.
+Purchased 1 mine using 12000 cookies.
+Next mine costs 12000 * 1.15 ^ 1 = 13800 cookies.
+After step 453: 1284 cookies, 48 cursors, 35 grandmas, 18 farms, <em>1 mine</em>
+</code></pre>
+        <p>Finally:</p>
+<pre><code>67 cursors produced 67 cookies.
+54 grandmas produced 540 cookies.
+36 farms produced 2880 cookies.
+19 mines produced 8930 cookies.
+After step 1000: 160336 cookies, 67 cursors, 54 grandmas, 36 farms, 19 mines
+</code></pre>
+        <p>After 1000 steps, you have <code><em>160336</em></code> cookies! (Due to floating-point errors, you may not get the exact figure; an error of about <code>10</code> cookies is normal. This problem should not appear in the actual puzzle.)</p>
+        <p>Simulate the competition and mass-produce cookies! <em>How many cookies do you have after 1000 steps?</em></p>
+    </div>
+    <p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html"
+                                                                                target="_blank">get your puzzle
+        input</a>.</p>
+    <p class="part2-ans hidden">Your puzzle answer was <code id="part2-ans-val"></code>.</p>
+    <p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold
+        stars: **</em></p>
+    <p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html"
+                                                                         target="_blank">get your puzzle input</a>.</p>
+    <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span>
+    </p>
+</article>
+</body>
+<script>
+        let p1ans = "638";
+        let p2ans = "66080";
+        let hide = (...rest) => [...rest].forEach(n => document.querySelector(n).classList.add("hidden"))
+        let show = (...rest) => [...rest].forEach(n => document.querySelector(n).classList.remove("hidden"))
+
+        document.querySelector("#part1-ans-val").innerHTML = p1ans;
+        document.querySelector("#part2-ans-val").innerHTML = p2ans;
+
+        solvedPart1 = false
+        function submit() {
+            switch(document.querySelector("#owo").value.trim()) {
+                case p1ans:
+                    if (!solvedPart1) {
+                        solvedPart1 = true
+                        alert("Your answer is correct! Part 2 has been unlocked.");
+                        hide(".part1-prompt");
+                        show(".part1-ans", ".part2", ".part2-prompt", ".part1-star");
+                        break;
+                    } else {
+                        alert("Your answer is incorrect.");
+                        break;
+                    }
+                case p2ans:
+                    if (solvedPart1) {
+                        alert("Your answer is correct! You have completed the problem!");
+                        hide(".part2-prompt", ".part1-star", ".submit-module");
+                        show(".part2-ans", ".end-prompt", ".part2-star");
+                        break;
+                    } else {
+                        alert("Your answer is incorrect.");
+                        break;
+                    }
+                default:
+                    alert("Your answer is incorrect.");
+            }
+        }
+
+</script>
+<style>
+            .hidden {
+                display: none;
+            }
+
+            body {
+                color: #cccccc;
+                font-family: "Source Code Pro", monospace;
+                font-size: 14pt;
+                min-width: 60em;
+                background-color: #0f0f23;
+            }
+
+            article {
+                width: 45em;
+            }
+
+            article em {
+            	color: #ffffff;
+            	font-style: normal;
+            	text-shadow: 0 0 5px #ffffff;
+            }
+
+            article h2 {
+                color: #ffffff;
+                font-size: 1em;
+                font-weight: normal;
+            }
+
+            pre, code {
+            	font-family: "Source Code Pro", monospace;
+            }
+
+            code::before {
+            	z-index: -1;
+            	content: "";
+            	position: absolute;
+            	display: block;
+            	left: -2px;
+            	right: -2px;
+            	top: 3px;
+            	bottom: 0px;
+            	border: 1px solid #333340;
+            	background: #10101a;
+            }
+
+            code {
+            	position: relative;
+            	display: inline-block;
+            	margin: 0;
+            	padding: 0;
+            }
+
+            input, textarea {
+            	background: transparent;
+            	color: inherit;
+            	border: 1px solid #666666;
+            	background: #10101a;
+            	padding: 0 2px;
+            	font-family: inherit;
+            	font-size: inherit;
+            	margin: 0;
+            }
+
+            .link {
+                color: #009900;
+            }
+
+            #submit {
+                padding: 8px;
+            }
+
+            .link:hover {
+                cursor: pointer;
+                color: #99ff99;
+            }
+
+            a {
+            	text-decoration: none;
+            	color: #009900;
+                outline: 0;
+            }
+
+            ul {
+              list-style-type: '- ';
+            }
+</style>
+</body>
+</html>
