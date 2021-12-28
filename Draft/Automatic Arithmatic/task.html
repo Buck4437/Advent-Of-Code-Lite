@@ -83,16 +83,12 @@
         <p>Convert the fractions into a format accepted by elementary schools. <em>What is the product of the sum of
             the different parts?</em></p>
     </div>
-    <p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html"
-                                                                                target="_blank">get your puzzle
-        input</a>.</p>
+    <p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
     <p class="part2-ans hidden">Your puzzle answer was <code>174432110361740</code>.</p>
-    <p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold
-        stars: **</em></p>
-    <p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html"
-                                                                         target="_blank">get your puzzle input</a>.</p>
-    <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span>
-    </p>
+    <p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold stars: **</em></p>
+    <p class="back-to-calendar hidden">At this point, you should <a class="link" href="../../index.html">return to your Advent calendar</a> and try another puzzle.</p>
+    <p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
+    <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span></p>
 </article>
 </body>
 <style>
@@ -218,6 +214,7 @@
 							document.querySelector(".end-prompt").classList.remove("hidden");
 							document.querySelector(".part1-star").classList.add("hidden");
 							document.querySelector(".part2-star").classList.remove("hidden");
+							document.querySelector(".back-to-calendar").classList.remove("hidden");
                             document.querySelector(".submit-module").classList.add("hidden");
                             break;
                         }

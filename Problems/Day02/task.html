@@ -14,7 +14,8 @@
     <h2>--- Day 2: Chocolate Coins ---</h2>
     <p>While you are organizing your star coin collections, you accidentally spilt all of your coins, including some
         <em>fake chocolate coins</em>!</p>
-    <p>The <span title="For some reason, they taste slightly metallic.">chocolate coins</span>  look identical to the star coins, so there's no easy way to tell them apart. Fortunately,
+    <p>The <span
+            title="For some reason, they taste slightly metallic.">chocolate coins</span> look identical to the star coins, so there's no easy way to tell them apart. Fortunately,
         each coin is labeled with a unique ID, so you can use them to identify fake coins and separate them from your
         real star coins.</p>
     <p>After picking up all the coins, you made a list of coin IDs (your puzzle input). You faintly remembered that <em>the
@@ -49,14 +50,11 @@
         <p>After updating the rules, the total value of star IDs of the list above is <code><em>1223</em></code>.</p>
         <p>Apply the new rules to your list. What is the <em>new total value of star coins in your list?</em></p>
     </div>
-    <p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html"
-                                                                                target="_blank">get your puzzle
-        input</a>.</p>
+    <p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
     <p class="part2-ans hidden">Your puzzle answer was <code id="part2-ans-val"></code>.</p>
-    <p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold
-        stars: **</em></p>
-    <p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html"
-                                                                         target="_blank">get your puzzle input</a>.</p>
+    <p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold stars: **</em></p>
+    <p class="back-to-calendar hidden">At this point, you should <a class="link" href="../../index.html">return to your Advent calendar</a> and try another puzzle.</p>
+    <p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
     <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span>
     </p>
 </article>
@@ -88,7 +86,7 @@
                     if (solvedPart1) {
                         alert("Your answer is correct! You have completed the problem!");
                         hide(".part2-prompt", ".part1-star", ".submit-module");
-                        show(".part2-ans", ".end-prompt", ".part2-star");
+                        show(".part2-ans", ".end-prompt", ".part2-star", ".back-to-calendar");
                         break;
                     } else {
                         alert("Your answer is incorrect.");
@@ -98,6 +96,8 @@
                     alert("Your answer is incorrect.");
             }
         }
+
+
 
 </script>
 <style>
@@ -182,6 +182,8 @@
             	color: #009900;
                 outline: 0;
             }
+
+
 
 </style>
 </body>

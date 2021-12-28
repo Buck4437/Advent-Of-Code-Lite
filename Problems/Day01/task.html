@@ -61,6 +61,7 @@
 				<p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
                 <p class="part2-ans hidden">Your puzzle answer was <code id="part2-ans-val"></code>.</p>
 				<p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold stars: **</em></p>
+                <p class="back-to-calendar hidden">At this point, you should <a class="link" href="../../index.html">return to your Advent calendar</a> and try another puzzle.</p>
 				<p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
                 <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span></p>
             </article>
@@ -92,7 +93,7 @@
                     if (solvedPart1) {
                         alert("Your answer is correct! You have completed the problem!");
                         hide(".part2-prompt", ".part1-star", ".submit-module");
-                        show(".part2-ans", ".end-prompt", ".part2-star");
+                        show(".part2-ans", ".end-prompt", ".part2-star", ".back-to-calendar");
                         break;
                     }
                 default:

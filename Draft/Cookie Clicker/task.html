@@ -190,16 +190,12 @@ After step 1000: 160336 cookies, 67 cursors, 54 grandmas, 36 farms, 19 mines
         <p>After 1000 steps, you have <code><em>160336</em></code> cookies! (Due to floating-point errors, you may not get the exact figure; an error of about <code>10</code> cookies is normal. This problem should not appear in the actual puzzle.)</p>
         <p>Simulate the competition and mass-produce cookies! <em>How many cookies do you have after 1000 steps?</em></p>
     </div>
-    <p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html"
-                                                                                target="_blank">get your puzzle
-        input</a>.</p>
+    <p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
     <p class="part2-ans hidden">Your puzzle answer was <code id="part2-ans-val"></code>.</p>
-    <p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold
-        stars: **</em></p>
-    <p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html"
-                                                                         target="_blank">get your puzzle input</a>.</p>
-    <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span>
-    </p>
+    <p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold stars: **</em></p>
+    <p class="back-to-calendar hidden">At this point, you should <a class="link" href="../../index.html">return to your Advent calendar</a> and try another puzzle.</p>
+    <p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
+    <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span></p>
 </article>
 </body>
 <script>
@@ -229,7 +225,7 @@ After step 1000: 160336 cookies, 67 cursors, 54 grandmas, 36 farms, 19 mines
                     if (solvedPart1) {
                         alert("Your answer is correct! You have completed the problem!");
                         hide(".part2-prompt", ".part1-star", ".submit-module");
-                        show(".part2-ans", ".end-prompt", ".part2-star");
+                        show(".part2-ans", ".end-prompt", ".part2-star", ".back-to-calendar");
                         break;
                     } else {
                         alert("Your answer is incorrect.");
