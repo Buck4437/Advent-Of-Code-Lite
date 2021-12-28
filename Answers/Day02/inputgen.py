@@ -2,7 +2,7 @@ import random
 
 random.seed(349734922020)
 
-with open("Day02.txt", "w") as f:
+with open("input.txt", "w") as f:
     prev = set()
     for i in range(1000):
         while True:

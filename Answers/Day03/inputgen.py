@@ -1,7 +1,7 @@
 for c in "INTCODE":
     print(ord(c))
 
-f = open("Day03.txt", "w")
+f = open("input.txt", "w")
 
 
 def inc(val):

@@ -1,4 +1,4 @@
-with open("Day01.txt") as f:
+with open("input.txt") as f:
     fts = [int(x) for x in f.readlines()]
 
 print(sum(fts))

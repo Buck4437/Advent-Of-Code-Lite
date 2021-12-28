@@ -1,4 +1,4 @@
-with open("Day03.txt") as f:
+with open("input.txt") as f:
     ins = f.readlines()
 
 pt1 = val = 0

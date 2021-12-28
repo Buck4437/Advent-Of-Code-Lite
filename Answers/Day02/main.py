@@ -1,4 +1,4 @@
-with open("Day02.txt") as f:
+with open("input.txt") as f:
     vals = [int(x) for x in f.readlines()]
 
 s1 = s2 = 0

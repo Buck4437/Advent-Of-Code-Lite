@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,700;1,300&display=swap" rel="stylesheet">
+        <title>Day 3 - Advent of ICT</title>
+    </head>
+    <body>
+        <body>
+            <article class="">
+                <h2>--- Day 3: Roomba Repair ---</h2>
+                <p>Your roomba has malfunctioned and needs to be repaired.</p>
+                <p>After some inspection, you have discovered that the activator module of roomba has broke. Without the activator, your roomba won't be able to boot up and run programs! You have to rebuild the module as soon as possible.</p>
+                <p>Luckily, the roomba manual came with instructions to rebuild the activator module. It even came with a reboot program (your puzzle input) that can be used to reactivate the roomba.</p>
+                <p>Roomba activators can store a single value. <em>Initially, the value inside the activator is set to be <code>0</code>.</em> It then receives instructions and modifies the value accordingly.</p>
+                <p>As this is your first time working on any roomba-related mechanisms, you have decided to build a simpler version of the activator module - a bootloader. It can only boot up the roomba, but that's good enough for now.</p>
+                <p>The bootloader takes <em>two instructions:</em> <code>inc</code> and <code>dbl</code>.</p>
+                <ul>
+                    <li><code>inc</code> increases the value inside the bootloader by <code>1</code>.</li>
+                    <li><code>dbl</code> doubles the value inside the bootloader.</li>
+                </ul>
+                <p>You may notice that there are other instructions in your reboot program. Ignore them for now.</p>
+                <p>After executing all instructions in a program, the bootloader returns a checksum, which is the <em>final value stored inside the bootloader.</em></p>
+                <p>For example, here is a bootloader program:</p>
+                <pre><code>inc
+inc
+dbl
+dbl
+inc
+inc
+dbl
+dbl
+dbl
+</code></pre>
+<p>After executing, the checksum returned is <code>80</code>.</p>
+                <p>Run the reboot program with the bootloader. <em>What is the checksum of your reboot program?</em></p>
+				<p class="part1-prompt">To begin, <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
+				<p class="part1-ans hidden">Your puzzle answer was <code id="part1-ans-val"></code>.</p>
+				<p class="part1-star hidden"><em style="color:#ffff00">The first part of the puzzle is complete! It provides one gold star: *</em></p>
+                <div class="part2 hidden">
+                    <h2>--- Part Two ---</h2>
+                    <p>Beep Boop! The roomba booted up and displayed a message:</p>
+                    <p><code>To reactivate this machine, please execute the reboot program with a complete activator module and enter the reactivation key.</code></p>
+                    <p>It seems that you have to <em>upgrade your bootloader to an activator.</em></p>
+                    <p>Besides the existing instructions, activators take <em>three additional instructions:</em></p>
+                    <ul>
+                        <li><code>dec</code> decreases the value inside the activator by <code>1</code>.</li>
+                        <li><code>hlf</code> halves the value inside the activator, <em>rounded down.</em> You don't have to worry about negative numbers, as the value will always be non-negative.</li>
+                        <li><code>out</code> output a character on the screen, based on the <em>current value in the activator.</em> The character is decoded using <a href="https://simple.wikipedia.org/wiki/ASCII">ASCII</a> code: <code>65</code> means <code>A</code>, <code>66</code> means <code>B</code>, and so on.</li>
+                    </ul>
+                    <p>For example, this is a program that prints the word <code>BAD</code> on screen:</p>
+                    <pre><code>inc
+dbl
+inc
+hlf
+dbl
+dbl
+dbl
+dbl
+dbl
+inc
+dbl
+out
+dec
+out
+inc
+inc
+inc
+out
+</code></pre>
+                    <p>The manual said that after executing the program, a <em>seven-character long</em> reactivation key will be displayed on the screen.</p>
+                    <p>Run the reboot program. <em>What is the key used to reactivate your roomba?</em></p>
+                </div>
+				<p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
+                <p class="part2-ans hidden">Your puzzle answer was <code id="part2-ans-val"></code>.</p>
+				<p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold stars: **</em></p>
+				<p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
+                <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span></p>
+            </article>
+        </body>
+        <script>
+        let p1ans = "4589212";
+        let p2ans = "INTCODE";
+        let hide = (...rest) => [...rest].forEach(n => document.querySelector(n).classList.add("hidden"))
+        let show = (...rest) => [...rest].forEach(n => document.querySelector(n).classList.remove("hidden"))
+
+        document.querySelector("#part1-ans-val").innerHTML = p1ans;
+        document.querySelector("#part2-ans-val").innerHTML = p2ans;
+
+        solvedPart1 = false
+        function submit() {
+            switch(document.querySelector("#owo").value.trim()) {
+                case p1ans:
+                    if (!solvedPart1) {
+                        solvedPart1 = true
+                        alert("Your answer is correct! Part 2 has been unlocked.");
+                        hide(".part1-prompt");
+                        show(".part1-ans", ".part2", ".part2-prompt", ".part1-star");
+                        break;
+                    } else {
+                        alert("Your answer is incorrect.");
+                        break;
+                    }
+                case p2ans:
+                    if (solvedPart1) {
+                        alert("Your answer is correct! You have completed the problem!");
+                        hide(".part2-prompt", ".part1-star", ".submit-module");
+                        show(".part2-ans", ".end-prompt", ".part2-star");
+                        break;
+                    }
+                default:
+                    alert("Your answer is incorrect.");
+            }
+        }
+        </script>
+        <style>
+            .hidden {
+                display: none;
+            }
+
+            body {
+                color: #cccccc;
+                font-family: "Source Code Pro", monospace;
+                font-size: 14pt;
+                min-width: 60em;
+                background-color: #0f0f23;
+            }
+
+            article {
+                width: 45em;
+            }
+
+            article em {
+            	color: #ffffff;
+            	font-style: normal;
+            	text-shadow: 0 0 5px #ffffff;
+            }
+
+            article h2 {
+                color: #ffffff;
+                font-size: 1em;
+                font-weight: normal;
+            }
+
+            pre, code {
+            	font-family: "Source Code Pro", monospace;
+            }
+
+            code::before {
+            	z-index: -1;
+            	content: "";
+            	position: absolute;
+            	display: block;
+            	left: -2px;
+            	right: -2px;
+            	top: 3px;
+            	bottom: 0px;
+            	border: 1px solid #333340;
+            	background: #10101a;
+            }
+
+            code {
+            	position: relative;
+            	display: inline-block;
+            	margin: 0;
+            	padding: 0;
+            }
+
+            input, textarea {
+            	background: transparent;
+            	color: inherit;
+            	border: 1px solid #666666;
+            	background: #10101a;
+            	padding: 0 2px;
+            	font-family: inherit;
+            	font-size: inherit;
+            	margin: 0;
+            }
+
+            .link {
+                color: #009900;
+            }
+
+            #submit {
+                padding: 8px;
+            }
+
+            .link:hover {
+                cursor: pointer;
+                color: #99ff99;
+            }
+
+            a {
+            	text-decoration: none;
+            	color: #009900;
+                outline: 0;
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            li::before {
+                content: "\00a0\00a0-\00a0";
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            li {
+                padding-left: 2.5em;
+                position: relative;
+            }
+        </style>
+    </body>
+</html>
