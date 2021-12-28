@@ -1,0 +1,8 @@
+Objective: Using arraylist or hashset to store objects
+Input: A list of numbers, with some repeated
+
+Part 1:
+Calculate sum of all unique numbers
+
+Part 2:
+Calculate sum of all numbers that has appeared a odd number of times

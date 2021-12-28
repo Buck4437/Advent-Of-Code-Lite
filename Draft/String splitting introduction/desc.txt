@@ -1,0 +1,10 @@
+Objective: splitting string
+
+Input: a single, long string of addition
+
+Part 1:
+Calculate the result of the sum (Splitting '+')
+
+Part 2:
+Calculate the sum of all digits (Splitting char)
+

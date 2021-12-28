@@ -1,0 +1,16 @@
+Objective: Optimizing steps and repeated process
+
+Part 1:
+Some instruction provided:
+L: Move left
+R: Move right
+U: Move up
+D: Move down
+
+The script is 100 steps long
+
+Question:
+Run the script, what's the Manhattan distance from the origin?
+
+Part 2:
+Loop the script and perform 1247583602 steps, what's the Manhattan distance from the origin?

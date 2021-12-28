@@ -1,0 +1,15 @@
+Objective: Basic 1D tile transversal
+
+Part 1:
+Some instruction provided:
+>: Move 1 space forward
+>>: Move 5 spaces forward
+<: Move 1 space backward
+<<: Move 3 spaces forward
+
+Question:
+Repeat the script 20 times. What is the cell that the thing will land on
+
+Part 2:
+How many steps needed for the thing to reach 10000th cell?
+
