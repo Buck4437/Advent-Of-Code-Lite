@@ -9,44 +9,28 @@
     <title>Day 2 - Advent of ICT</title>
 </head>
 <body>
-<body>
 <article class="">
     <h2>--- Day 2: Chocolate Coins ---</h2>
-    <p>While you are organizing your star coin collections, you accidentally spilt all of your coins, including some
-        <em>fake chocolate coins</em>!</p>
-    <p>The <span
-            title="For some reason, they taste slightly metallic.">chocolate coins</span> look identical to the star coins, so there's no easy way to tell them apart. Fortunately,
-        each coin is labeled with a unique ID, so you can use them to identify fake coins and separate them from your
-        real star coins.</p>
-    <p>After picking up all the coins, you made a list of coin IDs (your puzzle input). You faintly remembered that <em>the
-        ID of star coins must not end with <code>0</code></em>. That means that all coins whose ID ends with
-        <code>0</code> must be a fake chocolate coin.</p>
+    <p>While you are organizing your <a class="link" href="https://adventofcode.com/2020/day/1">star coin</a> collections, you accidentally spilt all of your coins, including some <em>fake chocolate coins</em>!</p>
+    <p>The chocolate coins look identical to the star coins, so there's no easy way to tell them apart. Fortunately, each coin is labeled with a unique ID, so you can use them to identify fake coins and separate them from your real star coins.</p>
+    <p>After picking up all the coins, you made a list of coin IDs (your puzzle input). You faintly remembered that <em>the ID of star coins must not end with <code>0</code></em>. That means that all coins whose ID ends with <code>0</code> must be a fake chocolate coin.</p>
     <p>For example, consider the following list:</p>
-    <pre><code>312
+<pre><code>312
 911
 508
 707
 100</code></pre>
-    <p>The first four coin IDs do not end with a <code>0</code>, so those are valid star coin IDs. The final coin ID
-        (<code>100</code>) ends with a <code>0</code>, so it is not a valid coin ID, and thus is a fake chocolate coin.
-    </p>
-    <p>To calculate the <em>total value</em> of star coins, <em>exclude all invalid coin IDs and sum up all valid coin
-        IDs</em>. In the example above, the total value of star coins is <code><em>2438</em></code>.</p>
+    <p>The first four coin IDs do not end with a <code>0</code>, so those are valid star coin IDs. The final coin ID (<code>100</code>) ends with a <code>0</code>, so it is not a valid coin ID, and thus is a fake chocolate coin.</p>
+    <p>To calculate the <em>total value</em> of star coins, <em>exclude all invalid coin IDs and sum up all valid coin IDs</em>. In the example above, the total value of star coins is <code><em>2438</em></code>.</p>
     <p>What is the <em>total value of star coins in your list</em>?</p>
     <p class="part1-prompt">To begin, <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
     <p class="part1-ans hidden">Your puzzle answer was <code id="part1-ans-val"></code>.</p>
-    <p class="part1-star hidden"><em style="color:#ffff00">The first part of the puzzle is complete! It provides one
-        gold star: *</em></p>
+    <p class="part1-star hidden"><em style="color:#ffff00">The first part of the puzzle is complete! It provides one gold star: *</em></p>
     <div class="part2 hidden">
         <h2>--- Part Two ---</h2>
-        <p>You seemed to have more coins than you remembered; looks like you still haven't separated all the chocolate
-            coins from the pile.</p>
-        <p>Suddenly, you remembered what the actual rule was: <em>the ID of star coins must not contain <code>0</code>
-            in any of the digits.</em> That is to say, all digits of valid star coin IDs must be between <code>1</code>
-            and <code>9</code>, and consequently all invalid coin IDs contain at least one <code>0</code> in its digits.
-        </p>
-        <p>Consider the example above: <code>508</code> and <code>707</code> are no longer valid coin IDs as they
-            contain a <code>0</code> in their second digit.</p>
+        <p>You seemed to have more coins than you remembered; looks like you still haven't separated all the chocolate coins from the pile.</p>
+        <p>Suddenly, you remembered what the actual rule was: <em>the ID of star coins must not contain <code>0</code> in any of the digits.</em> That is to say, all digits of valid star coin IDs must be between <code>1</code> and <code>9</code>, and consequently all invalid coin IDs contain at least one <code>0</code> in its digits.</p>
+        <p>Consider the example above: <code>508</code> and <code>707</code> are no longer valid coin IDs as they contain a <code>0</code> in their second digit.</p>
         <p>After updating the rules, the total value of star IDs of the list above is <code><em>1223</em></code>.</p>
         <p>Apply the new rules to your list. What is the <em>new total value of star coins in your list?</em></p>
     </div>
@@ -55,8 +39,7 @@
     <p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold stars: **</em></p>
     <p class="back-to-calendar hidden">At this point, you should <a class="link" href="../../index.html">return to your Advent calendar</a> and try another puzzle.</p>
     <p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
-    <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span>
-    </p>
+    <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span></p>
 </article>
 </body>
 <script>
@@ -96,9 +79,6 @@
                     alert("Your answer is incorrect.");
             }
         }
-
-
-
 </script>
 <style>
             .hidden {
@@ -182,9 +162,5 @@
             	color: #009900;
                 outline: 0;
             }
-
-
-
 </style>
-</body>
 </html>

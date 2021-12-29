@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,700;1,300&display=swap"
-          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,700;1,300&display=swap" rel="stylesheet">
     <title>Day 15 - Advent of ICT</title>
 </head>
 <body>
-<body>
 <article class="">
-    <h2>--- Day 15: Automatic Arithmetic ---</h2>
-    <p>An elementary school student approaches you and asks for your help on his <em>math homework</em>. Apparently, he
+    <h2>--- Day 15: Fraction Contraction ---</h2>
+    <p>A student approaches you and asks for your help on his <em>math homework</em>. Apparently, he
         has struggled for hours to no avail. He promised to give you stickers in the shape of <em style="color:yellow">stars</em>
         he got from his lessons if you teach him.</p>
     <p>You decided to take a look at the homework. The piece of homework consists of some fractions, written as <code>x
@@ -50,9 +48,8 @@
     </p>
     <p>Reduce all of the fractions in the homework. <em>What is the product of the sum of the different parts?</em></p>
     <p class="part1-prompt">To begin, <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
-    <p class="part1-ans hidden">Your puzzle answer was <code>127563966978</code>.</p>
-    <p class="part1-star hidden"><em style="color:#ffff00">The first part of the puzzle is complete! It provides one
-        gold star: *</em></p>
+    <p class="part1-ans hidden">Your puzzle answer was <code id="part1-ans-val"></code>.</p>
+    <p class="part1-star hidden"><em style="color:#ffff00">The first part of the puzzle is complete! It provides one gold star: *</em></p>
     <div class="part2 hidden">
         <h2>--- Part Two ---</h2>
         <p>As you fill in the answers, the boy was confused. "Why is this number on the top greater than this number at
@@ -75,7 +72,7 @@
         </pre>
         <p>Once again, check for <em>the product of the sum of the different parts in the reduced fractions</em>. There
             are three parts in these fractions: a <em>whole part</em>, a <em>numerator</em> and a <em>denominator</em>.
-            Fractions smaller than 1 do not have a whole part, and whole numbers do not have a numerator or a
+            Fractions smaller than 1 (like <code>2 / 5</code>) do not have a whole part, and whole numbers (like <code>1</code>) do not have a numerator or a
             denominator. In this example, the sum of the whole parts is <code>10</code>, the sum of the numerators is
             <code>19</code> and the sum of the denominators is <code>35</code>, so the answer to the homework is <code>10
                 * 19 * 35 = <em>6650</em></code>.
@@ -84,13 +81,48 @@
             the different parts?</em></p>
     </div>
     <p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
-    <p class="part2-ans hidden">Your puzzle answer was <code>174432110361740</code>.</p>
+    <p class="part2-ans hidden">Your puzzle answer was <code id="part2-ans-val"></code>.</p>
     <p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold stars: **</em></p>
     <p class="back-to-calendar hidden">At this point, you should <a class="link" href="../../index.html">return to your Advent calendar</a> and try another puzzle.</p>
     <p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
     <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span></p>
 </article>
 </body>
+<script>
+        let p1ans = "127563966978";
+        let p2ans = "174432110361740";
+        let hide = (...rest) => [...rest].forEach(n => document.querySelector(n).classList.add("hidden"))
+        let show = (...rest) => [...rest].forEach(n => document.querySelector(n).classList.remove("hidden"))
+
+        document.querySelector("#part1-ans-val").innerHTML = p1ans;
+        document.querySelector("#part2-ans-val").innerHTML = p2ans;
+
+        solvedPart1 = false
+        function submit() {
+            switch(document.querySelector("#owo").value.trim()) {
+                case p1ans:
+                    if (!solvedPart1) {
+                        solvedPart1 = true
+                        alert("Your answer is correct! Part 2 has been unlocked.");
+                        hide(".part1-prompt");
+                        show(".part1-ans", ".part2", ".part2-prompt", ".part1-star");
+                        break;
+                    } else {
+                        alert("Your answer is incorrect.");
+                        break;
+                    }
+                case p2ans:
+                    if (solvedPart1) {
+                        alert("Your answer is correct! You have completed the problem!");
+                        hide(".part2-prompt", ".part1-star", ".submit-module");
+                        show(".part2-ans", ".end-prompt", ".part2-star", ".back-to-calendar");
+                        break;
+                    }
+                default:
+                    alert("Your answer is incorrect.");
+            }
+        }
+        </script>
 <style>
             .hidden {
                 display: none;
@@ -174,68 +206,8 @@
                 outline: 0;
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-</style>
-<script>
-        solvedPart1 = false
-            function submit() {
-                switch(document.querySelector("#owo").value.trim()) {
-                    case "127563966978":
-                        if (!solvedPart1) {
-                            solvedPart1 = true
-                            alert("Your answer is correct! Part 2 has been unlocked.");
-							document.querySelector(".part1-ans").classList.remove("hidden");
-                            document.querySelector(".part2").classList.remove("hidden");
-							document.querySelector(".part1-prompt").classList.add("hidden");
-							document.querySelector(".part2-prompt").classList.remove("hidden");
-							document.querySelector(".part1-star").classList.remove("hidden");
-                            break;
-                        } else {
-                            alert("Your answer is incorrect.");
-                            break;
-                        }
-                    case "174432110361740":
-                        if (solvedPart1) {
-                            alert("Your answer is correct! You have completed the problem!");
-                            document.querySelector(".part2-ans").classList.remove("hidden");
-							document.querySelector(".part2-prompt").classList.add("hidden");
-							document.querySelector(".end-prompt").classList.remove("hidden");
-							document.querySelector(".part1-star").classList.add("hidden");
-							document.querySelector(".part2-star").classList.remove("hidden");
-							document.querySelector(".back-to-calendar").classList.remove("hidden");
-                            document.querySelector(".submit-module").classList.add("hidden");
-                            break;
-                        }
-                    default:
-                        alert("Your answer is incorrect.");
-                }
+            ul {
+              list-style-type: '- ';
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
-</body>
+        </style>
 </html>

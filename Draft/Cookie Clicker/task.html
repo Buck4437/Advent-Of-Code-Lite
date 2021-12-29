@@ -6,12 +6,11 @@
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,700;1,300&display=swap"
           rel="stylesheet">
-    <title>Day 22 - Advent of ICT</title>
+    <title>Day 20 - Advent of ICT</title>
 </head>
 <body>
-<body>
 <article class="">
-    <h2>--- Day 22: Cookie Clicker ---</h2>
+    <h2>--- Day 20: Cookie Clicker ---</h2>
     <p>Your local town is hosting a <a class="link" href="https://orteil.dashnet.org/cookieclicker/" target ="_blank">cookie clicking</a> competition! The person who could bake the most cookies will win two cookies in the shape of <em style="color:yellow">stars</em>.</p>
     <p>In the competition, you are initially provided with some <em>cookies</em>, which you could use to purchase a variety of <em>tools</em> to bake more cookies. These tools will each have an <em>initial cost</em> and a <em>productivity value</em>, measured in <em>cookies per step</em> (CpS). These stats will be shown in your puzzle input. For example:</p>
 <pre><code>you have 15 cookies
@@ -20,7 +19,7 @@ grandma: initial cost: 100, CpS: 10
 farm: initial cost: 1100, CpS: 80
 mine: initial cost: 12000, CpS: 470</code></pre>
     <p>For now, just focus on <em>cursors</em> and ignore everything else.</p>
-    <p>Your goal is to simulate the competition in <em>steps</em>. On each step, the following happens, in order:</p>
+    <p>To bake cookies, simulate the competition in <em>steps</em>. On each step, the following happens, in order:</p>
     <ul>
         <li>Each cursor you own <em>increases</em> the number of cookies. That is, if you have <code>10</code> cursors, your will gain <code>10 * 1 = 10</code> cookies.</li>
         <li>If you have enough cookies, <em>spend</em> cookies to buy a cursor.</li>
@@ -118,7 +117,7 @@ After step 1000: 3244 cookies, 40 cursors
 <ul>
     <li>The tools you own <em>increases</em> the number of cookies. If you have <code>10</code> cursors and <code>5</code> grandmas, your will gain <code>10 * 1 + 5 * 10 = 60</code> cookies.</li>
     <li>Find the item with the <em>lowest cost</em>. If you have enough cookies to buy it, buy it.</li>
-    <li>If an item is bought, the cost of the next item is <em>updated</em> by raising 1.15 to the power of the number of that item you own, then multiplied by the initial cost of that item, rounded down to the nearest integer. </li>
+    <li>If an item is bought, the cost of the next item is <em>updated</em> by raising 1.15 to the power of the number of that item you own, then multiplied by the initial cost of that item, rounded down to the nearest integer. That is, if you bought cursors, update the price of cursors; if you bought farms, update the price of farms.</li>
 </ul>
         <p>Using the above example again, the initial steps are the same, because the price of cursors are kept below the price of grandmas, resulting in cursors being purchased. However, at step 97, the price of cursors exceed the price of grandmas:</p>
 <pre><code>13 cursors produced 13 cookies.
@@ -324,5 +323,4 @@ After step 1000: 160336 cookies, 67 cursors, 54 grandmas, 36 farms, 19 mines
               list-style-type: '- ';
             }
 </style>
-</body>
 </html>

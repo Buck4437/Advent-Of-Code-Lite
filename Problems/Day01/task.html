@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,700;1,300&display=swap" rel="stylesheet">
-        <title>Day 1 - Advent of ICT</title>
-    </head>
-    <body>
-        <body>
-            <article class="">
-                <h2>--- Day 1: Fruit List ---</h2>
-                <p>You have been challenged to a game of <span title="Definitely not Fruit Box.">Fruit List</span>! Before playing the game, you need to examine your list of fruits (your puzzle input) and check your odds of winning.</p>
-                <p>On the list, each fruit is represented by a value between <code>1</code> and <code>9</code>.</p>
-                <p>To calculate the winning potential of the list, <em>add up all the values in the list</em>.</p>
-                <p>For example, consider the following list:</p>
-                <pre>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,700;1,300&display=swap"
+          rel="stylesheet">
+    <title>Day 1 - Advent of ICT</title>
+</head>
+<body>
+<article class="">
+    <h2>--- Day 1: Fruit List ---</h2>
+    <p>You have been challenged to a game of <span title="Definitely not Fruit Box.">Fruit List</span>! Before playing the game, you need to examine your list of fruits (your puzzle input) and check your odds of winning.</p>
+    <p>On the list, each fruit is represented by a value between <code>1</code> and <code>9</code>.</p>
+    <p>To calculate the winning potential of the list, <em>add up all the values in the list</em>.</p>
+    <p>For example, consider the following list:</p>
+<pre>
 <code>1
 4
 2
@@ -27,46 +27,46 @@
 5
 3
 1</code>
-                </pre>
-                <p>The winning potential of this list is <code><em>45</em></code>.</p>
-                <p><em>What is the winning potential of your fruit list?</em></p>
-				<p class="part1-prompt">To begin, <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
-				<p class="part1-ans hidden">Your puzzle answer was <code id="part1-ans-val"></code>.</p>
-				<p class="part1-star hidden"><em style="color:#ffff00">The first part of the puzzle is complete! It provides one gold star: *</em></p>
-                <div class="part2 hidden">
-                    <h2>--- Part Two ---</h2>
-                    <p>You are now ready for fruit list.</p>
-                    <p>At the beginning of fruit list, you start with a fruit sum of <code>0</code>. On each turn, the player moves down the list, and the value is added to your fruit sum.</p>
-                    <p>When your fruit sum is a multiplier of <code>10</code>, <em>an elimination occurs</em>, and your fruit sum is divided by <code>10</code>. Elimination will <em>only happen once per turn</em>. If your fruit sum is 100, it will become 10, and will not be further divided to 1.</p>
-                    <p>Your final score is obtained by <em>multiplying the number of elimination and your final fruit sum together</em>.</p>
-                    <p>Consider the example above:</p>
-                    <p>Turn 1:</p>
-                    <pre><code>Sum = 1 <em>(+1)</em>, Elimination = 0</code></pre>
-                    <p>Turn 2:</p>
-                    <pre><code>Sum = 5 <em>(+4)</em>, Elimination = 0</code></pre>
-                    <p>Turn 3:</p>
-                    <pre><code>Sum = 7 <em>(+2)</em>, Elimination = 0</code></pre>
-                    <p>Turn 4:</p>
-                    <pre><code>Sum = 10 <em>(+3)</em>, Elimination = 0</code></pre>
-                    <p>Because the sum is a multiple of 10, an elimination occurs:</p>
-                    <pre><code>Sum = 1, Elimination = 1 <em>(+1)</em></code></pre>
-                    <p>Turn 5:</p>
-                    <pre><code>Sum = 4 <em>(+3)</em>, Elimination = 1</code></pre>
-                    <p>...</p>
-                    <p>Turn 11:</p>
-                    <pre><code>Sum = 18 <em>(+1)</em>, Elimination = 2</code></pre>
-                    <p>Therefore, the final score is <code>18 * 2 = <em>36</em></code>.</p>
-                    <p><em>What is the final score of your fruit list?</em></p>
-                </div>
-				<p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
-                <p class="part2-ans hidden">Your puzzle answer was <code id="part2-ans-val"></code>.</p>
-				<p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold stars: **</em></p>
-                <p class="back-to-calendar hidden">At this point, you should <a class="link" href="../../index.html">return to your Advent calendar</a> and try another puzzle.</p>
-				<p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
-                <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span></p>
-            </article>
-        </body>
-        <script>
+</pre>
+    <p>The winning potential of this list is <code><em>45</em></code>.</p>
+    <p><em>What is the winning potential of your fruit list?</em></p>
+    <p class="part1-prompt">To begin, <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
+    <p class="part1-ans hidden">Your puzzle answer was <code id="part1-ans-val"></code>.</p>
+    <p class="part1-star hidden"><em style="color:#ffff00">The first part of the puzzle is complete! It provides one gold star: *</em></p>
+    <div class="part2 hidden">
+        <h2>--- Part Two ---</h2>
+        <p>You are now ready for fruit list.</p>
+        <p>At the beginning of fruit list, you start with a fruit sum of <code>0</code>. On each turn, the player moves down the list, and the value is added to your fruit sum.</p>
+        <p>When your fruit sum is a multiplier of <code>10</code>, <em>an elimination occurs</em>, and your fruit sum is divided by <code>10</code>. Elimination will <em>only happen once per turn</em>. If your fruit sum is 100, it will become 10, and will not be further divided to 1.</p>
+        <p>Your final score is obtained by <em>multiplying the number of elimination and your final fruit sum together</em>.</p>
+        <p>Consider the example above:</p>
+        <p>Turn 1:</p>
+        <pre><code>Sum = 1 <em>(+1)</em>, Elimination = 0</code></pre>
+        <p>Turn 2:</p>
+        <pre><code>Sum = 5 <em>(+4)</em>, Elimination = 0</code></pre>
+        <p>Turn 3:</p>
+        <pre><code>Sum = 7 <em>(+2)</em>, Elimination = 0</code></pre>
+        <p>Turn 4:</p>
+        <pre><code>Sum = 10 <em>(+3)</em>, Elimination = 0</code></pre>
+        <p>Because the sum is a multiple of 10, an elimination occurs:</p>
+        <pre><code>Sum = 1, Elimination = 1 <em>(+1)</em></code></pre>
+        <p>Turn 5:</p>
+        <pre><code>Sum = 4 <em>(+3)</em>, Elimination = 1</code></pre>
+        <p>...</p>
+        <p>Turn 11:</p>
+        <pre><code>Sum = 18 <em>(+1)</em>, Elimination = 2</code></pre>
+        <p>Therefore, the final score is <code>18 * 2 = <em>36</em></code>.</p>
+        <p><em>What is the final score of your fruit list?</em></p>
+    </div>
+    <p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
+    <p class="part2-ans hidden">Your puzzle answer was <code id="part2-ans-val"></code>.</p>
+    <p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold stars: **</em></p>
+    <p class="back-to-calendar hidden">At this point, you should <a class="link" href="../../index.html">return to your Advent calendar</a> and try another puzzle.</p>
+    <p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
+    <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span></p>
+</article>
+</body>
+<script>
         let p1ans = "5033";
         let p2ans = "7326";
         let hide = (...rest) => [...rest].forEach(n => document.querySelector(n).classList.add("hidden"))
@@ -100,8 +100,8 @@
                     alert("Your answer is incorrect.");
             }
         }
-        </script>
-        <style>
+</script>
+<style>
             .hidden {
                 display: none;
             }
@@ -183,6 +183,5 @@
             	color: #009900;
                 outline: 0;
             }
-        </style>
-    </body>
+</style>
 </html>
