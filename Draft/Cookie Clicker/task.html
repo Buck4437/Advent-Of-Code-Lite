@@ -23,14 +23,15 @@ mine: initial cost: 12000, CpS: 470</code></pre>
     <ul>
         <li>Each cursor you own <em>increases</em> the number of cookies. That is, if you have <code>10</code> cursors, your will gain <code>10 * 1 = 10</code> cookies.</li>
         <li>If you have enough cookies, <em>spend</em> cookies to buy a cursor.</li>
-        <li>If a cursor is bought, the cost of the next cursor is <em>updated</em> by raising 1.15 to the power of the number of cursors you own, then multiplied by the initial cost of cursors, rounded down to the nearest integer. </li>
+        <li>If a cursor is bought, the cost of the next cursor is <em>updated</em> by raising 1.15 to the power of the number of cursors you own, then multiplied by the initial cost of cursors.</li>
     </ul>
     <p>Using the example above, the following would happen:</p>
-<pre><code>0 cursors produced 0 cookies.
-Purchased 1 cursor using 15 cookies.
-Next cursor costs 15 * 1.15 ^ 1 = 17.25 cookies (rounded down to 17).
+    <p>Initially, no cookies are generated because there are no cursors. However, there is just enough cookies to buy a cursor:</p>
+<pre><code>Purchased 1 cursor using 15.00 cookies.
+Next cursor costs 15 * 1.15 ^ 1 = 17.25 cookies.
 After step 1: 0 cookies, <em>1 cursor</em>
 </code></pre>
+    <p>After that, the cursor produces 1 cookie per step:</p>
 <pre><code>1 cursor produced 1 cookie.
 After step 2: 1 cookie, 1 cursor
 </code></pre>
@@ -40,71 +41,73 @@ After step 3: 2 cookies, 1 cursor
     <pre><code>1 cursor produced 1 cookie.
 After step 4: 3 cookies, 1 cursor
 </code></pre>
-    <p>For the next couple of steps, nothing happens except for the <code>1</code> cursor providing <code>1</code> cookie per step, until step 18:</p>
+    <p>For the next couple of steps, nothing happens except for the <code>1</code> cursor providing <code>1</code> cookie per step, until step 19:</p>
     <pre><code>1 cursor produced 1 cookie.
-After step 17: 16 cookies, 1 cursor
+After step 18: 17 cookies, 1 cursor
 </code></pre>
     <pre><code>1 cursor produced 1 cookie.
-Purchased 1 cursor using 17 cookies.
-Next cursor costs 15 * 1.15 ^ 2 = 19.84 cookies (rounded down to 19).
-After step 18: 0 cookies, <em>2 cursors</em>
+Purchased 1 cursor using 17.25 cookies.
+Next cursor costs 15 * 1.15 ^ 2 = 19.84 cookies.
+After step 19: 0.75 cookies, <em>2 cursors</em>
 </code></pre>
     <pre><code>2 cursors produced 2 cookies.
-After step 19: 2 cookies, 2 cursors
+After step 20: 2.75 cookies, 2 cursors
 </code></pre>
+    <p>Notice that you can pay a fraction of a cookie. As a result, even when you have <code>17</code> cookies after step 18, that is not enough to purchase a cursor, which costs <code>17.25</code> cookies. At the next step, after the purchase, you will have <code>18 - 17.25 = 0.75</code> cookies left.</p>
+    <p>(From here, all values shown are either exact or rounded to 2 decimal places. <em>Do not round during your calculations.</em>)</p>
     <p>Here are some other steps where cursors are purchased:</p>
     <pre><code>2 cursors produced 2 cookies.
-After step 27: 18 cookies, 2 cursors
+After step 28: 18.75 cookies, 2 cursors
 </code></pre>
     <pre><code>2 cursors produced 2 cookies.
-Purchased 1 cursor using 19 cookies.
-Next cursor costs 15 * 1.15 ^ 3 = 22.81 cookies (rounded down to 22).
-After step 28: 1 cookie, <em>3 cursors</em>
+Purchased 1 cursor using 19.84 cookies.
+Next cursor costs 15 * 1.15 ^ 3 = 22.81 cookies.
+After step 29: 0.91 cookies, <em>3 cursors</em>
 </code></pre>
     <pre><code>3 cursors produced 3 cookies.
-After step 29: 4 cookies, 3 cursors
+After step 30: 3.91 cookies, 3 cursors
 </code></pre>
     <p>...</p>
     <pre><code>3 cursors produced 3 cookies.
-After step 34: 19 cookies, 3 cursors
+After step 36: 21.91 cookies, 3 cursors
 </code></pre>
     <pre><code>3 cursors produced 3 cookies.
-Purchased 1 cursor using 22 cookies.
-Next cursor costs 15 * 1.15 ^ 4 = 26.24 cookies (rounded down to 26).
-After step 35: 0 cookies, <em>4 cursors</em>
+Purchased 1 cursor using 22.81 cookies.
+Next cursor costs 15 * 1.15 ^ 4 = 26.24 cookies.
+After step 37: 2.10 cookies, <em>4 cursors</em>
 </code></pre>
     <pre><code>4 cursors produced 4 cookies.
-After step 36: 4 cookies, 4 cursors
+After step 38: 6.10 cookies, 4 cursors
 </code></pre>
     <p>...</p>
     <pre><code>4 cursors produced 4 cookies.
-After step 41: 24 cookies, 4 cursors
+After step 43: 26.10 cookies, 4 cursors
 </code></pre>
     <pre><code>4 cursors produced 4 cookies.
-Purchased 1 cursor using 26 cookies.
-Next cursor costs 15 * 1.15 ^ 5 = 30.17 cookies (rounded down to 30).
-After step 42: 2 cookies, <em>5 cursors</em>
+Purchased 1 cursor using 26.24 cookies.
+Next cursor costs 15 * 1.15 ^ 5 = 30.17 cookies.
+After step 44: 3.86 cookies, <em>5 cursors</em>
 </code></pre>
     <pre><code>5 cursors produced 5 cookies.
-After step 43: 7 cookies, 5 cursors
+After step 45: 8.86 cookies, 5 cursors
 </code></pre>
-    <p>The cost of cursors increases <em>exponentially</em>. The last time a cursor is purchased is on step 919:</p>
+    <p>The cost of cursors increases <em>exponentially</em>. The last time a cursor is purchased is on step 922:</p>
     <pre><code>39 cursors produced 39 cookies.
-After step 918: 3458 cookies, 39 cursors
+After step 921: 3466.52 cookies, 39 cursors
 </code></pre>
     <pre><code>39 cursors produced 39 cookies.
-Purchased 1 cursor using 3493 cookies.
-Next cursor costs 15 * 1.15 ^ 40 = 4017.95 cookies (rounded down to 4017).
-After step 919: 4 cookies, <em>40 cursors</em>
+Purchased 1 cursor using 3493.87 cookies.
+Next cursor costs 15 * 1.15 ^ 40 = 4017.95 cookies.
+After step 922: 11.65 cookies, <em>40 cursors</em>
 </code></pre>
     <pre><code>40 cursors produced 40 cookies.
-After step 920: 44 cookies, 40 cursors
+After step 923: 51.65 cookies, 40 cursors
 </code></pre>
     <p>In the end:</p>
     <pre><code>40 cursors produced 40 cookies.
-After step 1000: 3244 cookies, 40 cursors
+After step 1000: 3131.65 cookies, 40 cursors
 </code></pre>
-    <p>After 1000 steps, you have <code><em>3244</em></code> cookies.</p>
+    <p>After 1000 steps, you have <code><em>3131</em></code> cookies. (Any fractional cookies should be discarded.)</p>
     <p>Simulate the competition. <em>How many cookies do you have after 1000 steps?</em></p>
     <p class="part1-prompt">To begin, <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
     <p class="part1-ans hidden">Your puzzle answer was <code id="part1-ans-val"></code>.</p>
@@ -117,76 +120,76 @@ After step 1000: 3244 cookies, 40 cursors
 <ul>
     <li>The tools you own <em>increases</em> the number of cookies. If you have <code>10</code> cursors and <code>5</code> grandmas, your will gain <code>10 * 1 + 5 * 10 = 60</code> cookies.</li>
     <li>Find the item with the <em>lowest cost</em>. If you have enough cookies to buy it, buy it.</li>
-    <li>If an item is bought, the cost of the next item is <em>updated</em> by raising 1.15 to the power of the number of that item you own, then multiplied by the initial cost of that item, rounded down to the nearest integer. That is, if you bought cursors, update the price of cursors; if you bought farms, update the price of farms.</li>
+    <li>If an item is bought, the cost of that item is <em>updated</em> by raising 1.15 to the power of the number of that item you own, then multiplied by the initial cost of that item. That is, if you bought cursors, update the price of cursors; if you bought farms, update the price of farms.</li>
 </ul>
-        <p>Using the above example again, the initial steps are the same, because the price of cursors are kept below the price of grandmas, resulting in cursors being purchased. However, at step 97, the price of cursors exceed the price of grandmas:</p>
+        <p>Using the above example again, the initial steps are the same, because the price of cursors are kept below the price of grandmas, resulting in cursors being purchased. However, at step 99, the price of cursors exceed the price of grandmas:</p>
 <pre><code>13 cursors produced 13 cookies.
-Purchased 1 cursor using 92 cookies.
-Next cursor costs 15 * 1.15 ^ 14 = 106.14 cookies (rounded down to 106).
-After step 97: 5 cookies, <em>14 cursors</em>
+Purchased 1 cursor using 92.29 cookies.
+Next cursor costs 15 * 1.15 ^ 14 = 106.14 cookies.
+After step 99: 0.43 cookies, <em>14 cursors</em>
 </code></pre>
-        <p>The price of cursors is now <code>106</code> while that of grandmas is <code>100</code> (the initial cost). Therefore, the next <span title="Please don't call your grandma a tool.">tool</span> to purchase is a <em>grandma</em>, which is purchased at step 104:</p>
+        <p>The price of cursors is now <code>106.14</code> while that of grandmas is <code>100</code> (the initial cost). Therefore, the next <span title="Please don't call your grandma a tool.">tool</span> to purchase is a <em>grandma</em>, which is purchased at step 107:</p>
 <pre><code>14 cursors produced 14 cookies.
 Purchased 1 grandma using 100 cookies.
 Next grandma costs 100 * 1.15 ^ 1 = 115 cookies.
-After step 104: 3 cookies, 14 cursors, <em>1 grandma</em>
+After step 107: 12.43 cookies, 14 cursors, <em>1 grandma</em>
 </code></pre>
         <p>From here, the grandma will work hard and bake <code>10</code> cookies per step, which, combined with the <code>14</code> cursors, gives you <code>24</code> CpS in total:</p>
 <pre><code>14 cursors produced 14 cookies.
 1 grandma produced 10 cookies.
-After step 105: 27 cookies, 14 cursors, 1 grandma
+After step 108: 36.43 cookies, 14 cursors, 1 grandma
 </code></pre>
-        <p>The cost of grandmas has also risen to <code>115</code> cookies, which is higher than that of cursors (<code>106</code> cookies), so we go back to buying cursors:</p>
+        <p>The cost of grandmas has also risen to <code>115</code> cookies, which is higher than that of cursors (<code>106.14</code> cookies), so we go back to buying cursors:</p>
 <pre><code>14 cursors produced 14 cookies.
 1 grandma produced 10 cookies.
-Purchased 1 cursor using 106 cookies.
-Next cursor costs 15 * 1.15 ^ 15 = 122.06 cookies (rounded down to 122).
-After step 109: 17 cookies, <em>15 cursors</em>, 1 grandma
+Purchased 1 cursor using 106.14 cookies.
+Next cursor costs 15 * 1.15 ^ 15 = 122.06 cookies.
+After step 111: 2.29 cookies, <em>15 cursors</em>, 1 grandma
 </code></pre>
-        <p>And so forth:</p>
+        <p>And so on:</p>
 <pre><code>15 cursors produced 15 cookies.
 1 grandma produced 10 cookies.
 Purchased 1 grandma using 115 cookies.
-Next grandma costs 100 * 1.15 ^ 2 = 132.25 cookies (rounded down to 132).
-After step 113: 2 cookies, 15 cursors, <em>2 grandmas</em>
+Next grandma costs 100 * 1.15 ^ 2 = 132.25 cookies.
+After step 116: 12.29 cookies, 15 cursors, <em>2 grandmas</em>
 </code></pre>
         <p>...</p>
 <pre><code>15 cursors produced 15 cookies.
 2 grandmas produced 20 cookies.
-Purchased 1 cursor using 122 cookies.
-Next cursor costs 15 * 1.15 ^ 16 = 140.36 cookies (rounded down to 140).
-After step 117: 20 cookies, <em>16 cursors</em>, 2 grandmas
+Purchased 1 cursor using 122.06 cookies.
+Next cursor costs 15 * 1.15 ^ 16 = 140.36 cookies.
+After step 120: 30.24 cookies, <em>16 cursors</em>, 2 grandmas
 </code></pre>
         <p>...</p>
 <pre><code>16 cursors produced 16 cookies.
 2 grandmas produced 20 cookies.
-Purchased 1 grandma using 132 cookies.
-Next grandma costs 100 * 1.15 ^ 3 = 152.09 cookies (rounded down to 152).
-After step 121: 32 cookies, 16 cursors, <em>3 grandmas</em>
+Purchased 1 grandma using 132.25 cookies.
+Next grandma costs 100 * 1.15 ^ 3 = 152.09 cookies.
+After step 123: 5.99 cookies, 16 cursors, <em>3 grandmas</em>
 </code></pre>
-        <p>This continues, the purchasing gradually slowing down, until the first <em>farm</em> is purchased at step 232:</p>
+        <p>This continues, the purchasing gradually slowing down, until the first <em>farm</em> is purchased at step 235:</p>
 <pre><code>31 cursors produced 31 cookies.
 18 grandmas produced 180 cookies.
 Purchased 1 farm using 1100 cookies.
 Next farm costs 1100 * 1.15 ^ 1 = 1265 cookies.
-After step 232: 167 cookies, 31 cursors, 18 grandmas, <em>1 farm</em>
+After step 235: 187.01 cookies, 31 cursors, 18 grandmas, <em>1 farm</em>
 </code></pre>
-        <p>The cookie production really starts to ramp up. The first <em>mine</em> is purchased at step 453:</p>
+        <p>The cookie production really starts to ramp up. The first <em>mine</em> is purchased at step 456:</p>
 <pre><code>48 cursors produced 48 cookies.
 35 grandmas produced 350 cookies.
 18 farms produced 1440 cookies.
 Purchased 1 mine using 12000 cookies.
 Next mine costs 12000 * 1.15 ^ 1 = 13800 cookies.
-After step 453: 1284 cookies, 48 cursors, 35 grandmas, 18 farms, <em>1 mine</em>
+After step 456: 1277.92 cookies, 48 cursors, 35 grandmas, 18 farms, <em>1 mine</em>
 </code></pre>
         <p>Finally:</p>
 <pre><code>67 cursors produced 67 cookies.
 54 grandmas produced 540 cookies.
 36 farms produced 2880 cookies.
 19 mines produced 8930 cookies.
-After step 1000: 160336 cookies, 67 cursors, 54 grandmas, 36 farms, 19 mines
+After step 1000: 123040.21 cookies, 67 cursors, 54 grandmas, 36 farms, 19 mines
 </code></pre>
-        <p>After 1000 steps, you have <code><em>160336</em></code> cookies! (Due to floating-point errors, you may not get the exact figure; an error of about <code>10</code> cookies is normal. This problem should not appear in the actual puzzle.)</p>
+        <p>After 1000 steps, you have <code><em>123040</em></code> cookies!</p>
         <p>Simulate the competition and mass-produce cookies! <em>How many cookies do you have after 1000 steps?</em></p>
     </div>
     <p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
@@ -198,8 +201,8 @@ After step 1000: 160336 cookies, 67 cursors, 54 grandmas, 36 farms, 19 mines
 </article>
 </body>
 <script>
-        let p1ans = "638";
-        let p2ans = "66080";
+        let p1ans = "543";
+        let p2ans = "39574";
         let hide = (...rest) => [...rest].forEach(n => document.querySelector(n).classList.add("hidden"))
         let show = (...rest) => [...rest].forEach(n => document.querySelector(n).classList.remove("hidden"))
 
