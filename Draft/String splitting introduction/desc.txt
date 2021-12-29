@@ -7,4 +7,3 @@ Calculate the result of the sum (Splitting '+')
 
 Part 2:
 Calculate the sum of all digits (Splitting char)
-

@@ -1,0 +1,7 @@
+You received a mysterious message consisted of 1s and 0s
+
+Part 1:
+Count the number of active bits in the message
+
+Part 2:
+Calculate the sum of all binary numbers

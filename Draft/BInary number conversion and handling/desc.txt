@@ -1,0 +1,9 @@
+Objective: Handling strings expressing binary numbers and learn how to convert a binary number into an integer
+
+Input: A list of bin number of certain length
+
+Part 1:
+Count the number of numbers starting with 0 (those are positive numbers)
+
+Part 2:
+Count the sum of all numbers excluding those numbers starting with 1
