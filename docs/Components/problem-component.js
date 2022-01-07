@@ -12,7 +12,7 @@ Vue.component("problem-component", {
         }
     },
     mounted() {
-        document.title = `Day ${this.day} - Advent of ICT`;
+        document.title = `Day ${this.day} - Advent of Code Lite`;
         document.addEventListener("keydown", event => {
             if (event.code === "Enter") {
                 this.submit();
