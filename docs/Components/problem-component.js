@@ -18,6 +18,7 @@ Vue.component("problem-component", {
                 this.submit();
             }
         });
+        this.$refs.input.focus()
     },
     methods: {
         hide(...rest) {
@@ -56,7 +57,7 @@ Vue.component("problem-component", {
             <p v-if="stars === 1">Although it hasn't changed, you can still <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
         </div>
 
-        <p v-if="stars < 2">Answer: <input class="input" v-model="input"><span class="link" id="submit" @click="submit">[Submit]</span></p>
+        <p v-if="stars < 2">Answer: <input class="input" ref="input" v-model="input"><span class="link" id="submit" @click="submit">[Submit]</span></p>
 
         <div v-if="stars === 2">
             <p>Your puzzle answer was <code>{{p2Ans}}</code>.</p>

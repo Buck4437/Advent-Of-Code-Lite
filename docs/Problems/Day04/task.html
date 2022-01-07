@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html dir="ltr" lang="en">
     <head>
         <meta charset="utf-8">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,700;1,300&display=swap" rel="stylesheet">
-        <title>Day 4 - Advent of ICT</title>
+        <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,700;1,300&display=swap"
+              rel="stylesheet">
+        <link rel="stylesheet" href="../../Stylesheets/styles.css">
+        <title>Loading...</title>
     </head>
-        <body>
-            <article class="">
-                <h2>--- Day 4: Corruption Cleanup ---</h2>
-                <p>After fixing your roomba, you have decided to lie on the sofa and play some video games. However, the game crashed upon opening, and an error was displayed:</p>
-                <code>Unable to open game. Reason: Invalid save data</code>
-                <p>It seems that <em>some of your save data are corrupted!</em> To identify the issue, you extracted you save data and compiled it into a list (your puzzle input)</p>
-                <p>The save data is stored in the form of binary numbers. All binary numbers are eight-digit long, and extra <code>0</code>s are padding at the beginning if the number is less than eight-digit long.</p>
-                <p>After scanning your save data, you noticed that some numbers started with a <code>1</code>. These numbers represent negative values, and should not be present in the save data! This means <em>all numbers that start with a <code>1</code> are corrupted,</em> and they should be discarded.</p>
-                <p>For example, consider these numbers:</p>
-                <ul>
-                    <li><code>00001000</code>, <code>00101100</code> and <code>01111111</code> are valid numbers as they start with a <code>0</code>. These numbers are not corrupted.</li>
-                    <li><code>11010100</code>, <code>10110101</code> and <code>10000000</code> are invalid numbers as they start with a <code>1</code>. These numbers are corrupted and should be discarded.</li>
-                </ul>
-                <p><em>After discarding all corrupted numbers, how many numbers still remain in your save data?</em></p>
-				<p class="part1-prompt">To begin, <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
-				<p class="part1-ans hidden">Your puzzle answer was <code id="part1-ans-val"></code>.</p>
-				<p class="part1-star hidden"><em style="color:#ffff00">The first part of the puzzle is complete! It provides one gold star: *</em></p>
-                <div class="part2 hidden">
-                    <h2>--- Part Two ---</h2>
+    <body>
+        <div id="app">
+            <problem-component :day="day" :title="title" :p1-ans="p1Ans" :p2-ans="p2Ans">
+                <template #part1>
+                    <p>After fixing your roomba, you have decided to lie on the sofa and play some video games. However, the game crashed upon opening, and an error was displayed:</p>
+                    <code>Unable to open game. Reason: Invalid save data</code>
+                    <p>It seems that <em>some of your save data are corrupted!</em> To identify the issue, you extracted you save data and compiled it into a list (your puzzle input)</p>
+                    <p>The save data is stored in the form of binary numbers. All binary numbers are eight-digit long, and extra <code>0</code>s are padding at the beginning if the number is less than eight-digit long.</p>
+                    <p>After scanning your save data, you noticed that some numbers started with a <code>1</code>. These numbers represent negative values, and should not be present in the save data! This means <em>all numbers that start with a <code>1</code> are corrupted,</em> and they should be discarded.</p>
+                    <p>For example, consider these numbers:</p>
+                    <ul>
+                        <li><code>00001000</code>, <code>00101100</code> and <code>01111111</code> are valid numbers as they start with a <code>0</code>. These numbers are not corrupted.</li>
+                        <li><code>11010100</code>, <code>10110101</code> and <code>10000000</code> are invalid numbers as they start with a <code>1</code>. These numbers are corrupted and should be discarded.</li>
+                    </ul>
+                    <p><em>After discarding all corrupted numbers, how many numbers still remain in your save data?</em></p>
+                </template>
+                <template #part2>
                     <p>After discarding all the corrupted numbers, it's time to recompute the <em>checksum of your save data.</em></p>
                     <p>The checksum is obtained by the following steps:</p>
                     <ul>
@@ -57,148 +57,21 @@ Translate numbers to decimal:
 120</code></pre>
                     <p>The checksum is <code>101+59+39+119+120=<em>438</em></code>.</p>
                     <p><em>What is the checksum of your save data?</em></p>
-                </div>
-				<p class="part2-prompt hidden">Although it hasn't changed, you can still <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
-                <p class="part2-ans hidden">Your puzzle answer was <code id="part2-ans-val"></code>.</p>
-				<p class="part2-star hidden"><em style="color:#ffff00">Both parts of this puzzle are complete! They provide two gold stars: **</em></p>
-                <p class="back-to-calendar hidden">At this point, you should <a class="link" href="../index.html">return to your Advent calendar</a> and try another puzzle.</p>
-				<p class="end-prompt hidden">If you still want to see it, you can <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
-                <p class="submit-module">Answer: <input class="input" id="owo"><span class="link" id="submit" onclick="submit()">[Submit]</span></p>
-            </article>
-        </body>
-        <script>
-        let p1ans = "765";
-        let p2ans = "54458";
-        let hide = (...rest) => [...rest].forEach(n => document.querySelector(n).classList.add("hidden"))
-        let show = (...rest) => [...rest].forEach(n => document.querySelector(n).classList.remove("hidden"))
-
-        document.querySelector("#part1-ans-val").innerHTML = p1ans;
-        document.querySelector("#part2-ans-val").innerHTML = p2ans;
-
-        solvedPart1 = false
-        function submit() {
-            switch(document.querySelector("#owo").value.trim()) {
-                case p1ans:
-                    if (!solvedPart1) {
-                        solvedPart1 = true
-                        alert("Your answer is correct! Part 2 has been unlocked.");
-                        hide(".part1-prompt");
-                        show(".part1-ans", ".part2", ".part2-prompt", ".part1-star");
-                        break;
-                    } else {
-                        alert("Your answer is incorrect.");
-                        break;
-                    }
-                case p2ans:
-                    if (solvedPart1) {
-                        alert("Your answer is correct! You have completed the problem!");
-                        hide(".part2-prompt", ".part1-star", ".submit-module");
-                        show(".part2-ans", ".end-prompt", ".part2-star", ".back-to-calendar");
-                        break;
-                    }
-                default:
-                    alert("Your answer is incorrect.");
+                </template>
+            </problem-component>
+        </div>
+    </body>
+    <script src="../../Libraries/vue.js"></script>
+    <script src="../../Components/problem-component.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                day: 4,
+                title: "Corruption Cleanup",
+                p1Ans: "765",
+                p2Ans: "54458"
             }
-        }
-        </script>
-        <style>
-            .hidden {
-                display: none;
-            }
-
-            body {
-                color: #cccccc;
-                font-family: "Source Code Pro", monospace;
-                font-size: 14pt;
-                min-width: 60em;
-                background-color: #0f0f23;
-            }
-
-            article {
-                width: 45em;
-            }
-
-            article em {
-            	color: #ffffff;
-            	font-style: normal;
-            	text-shadow: 0 0 5px #ffffff;
-            }
-
-            article h2 {
-                color: #ffffff;
-                font-size: 1em;
-                font-weight: normal;
-            }
-
-            pre, code {
-            	font-family: "Source Code Pro", monospace;
-            }
-
-            code::before {
-            	z-index: -1;
-            	content: "";
-            	position: absolute;
-            	display: block;
-            	left: -2px;
-            	right: -2px;
-            	top: 3px;
-            	bottom: 0px;
-            	border: 1px solid #333340;
-            	background: #10101a;
-            }
-
-            code {
-            	position: relative;
-            	display: inline-block;
-            	margin: 0;
-            	padding: 0;
-            }
-
-            input, textarea {
-            	background: transparent;
-            	color: inherit;
-            	border: 1px solid #666666;
-            	background: #10101a;
-            	padding: 0 2px;
-            	font-family: inherit;
-            	font-size: inherit;
-            	margin: 0;
-            }
-
-            .link {
-                color: #009900;
-            }
-
-            #submit {
-                padding: 8px;
-            }
-
-            .link:hover {
-                cursor: pointer;
-                color: #99ff99;
-            }
-
-            a {
-            	text-decoration: none;
-            	color: #009900;
-                outline: 0;
-            }
-
-            ul {
-                list-style-type: none;
-                padding: 0;
-            }
-
-            li::before {
-                content: "\00a0\00a0-\00a0";
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-
-            li {
-                padding-left: 2.5em;
-                position: relative;
-            }
-        </style>
+        })
+    </script>
 </html>
