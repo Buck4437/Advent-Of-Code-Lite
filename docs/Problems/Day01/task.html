@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,700;1,300&display=swap"
+              rel="stylesheet">
+        <link rel="stylesheet" href="../../Stylesheets/styles.css">
+        <title>Loading...</title>
+    </head>
+    <body>
+        <div id="app">
+            <problem-component :day="day" :title="title" :p1-ans="p1Ans" :p2-ans="p2Ans">
+                <template #part1>
+                    <p>You have been challenged to a game of <span title="Definitely not Fruit Box.">Fruit List</span>! Before playing the game, you need to examine your list of fruits (your puzzle input) and check your odds of winning.</p>
+                    <p>On the list, each fruit is represented by a value between <code>1</code> and <code>9</code>.</p>
+                    <p>To calculate the winning potential of the list, <em>add up all the values in the list</em>.</p>
+                    <p>For example, consider the following list:</p>
+                    <pre>
+                    <code>1
+                    4
+                    2
+                    3
+                    3
+                    7
+                    9
+                    7
+                    5
+                    3
+                    1</code>
+                    </pre>
+                    <p>The winning potential of this list is <code><em>45</em></code>.</p>
+                    <p><em>What is the winning potential of your fruit list?</em></p>
+                </template>
+                <template #part2>
+                    <p>You are now ready for fruit list.</p>
+                    <p>At the beginning of fruit list, you start with a fruit sum of <code>0</code>. On each turn, the player moves down the list, and the value is added to your fruit sum.</p>
+                    <p>When your fruit sum is a multiplier of <code>10</code>, <em>an elimination occurs</em>, and your fruit sum is divided by <code>10</code>. Elimination will <em>only happen once per turn</em>. If your fruit sum is 100, it will become 10, and will not be further divided to 1.</p>
+                    <p>Your final score is obtained by <em>multiplying the number of elimination and your final fruit sum together</em>.</p>
+                    <p>Consider the example above:</p>
+                    <pre><code>Turn 1:
+                        Sum = 1 <em>(+1)</em>, Elimination = 0
+
+                        Turn 2:
+                        Sum = 5 <em>(+4)</em>, Elimination = 0
+
+                        Turn 3:
+                        Sum = 7 <em>(+2)</em>, Elimination = 0
+
+                        Turn 4:
+                        Sum = 10 <em>(+3)</em>, Elimination = 0
+
+                        Because the sum is a multiple of 10, an elimination occurs:
+                        Sum = 1, Elimination = 1 <em>(+1)</em>
+
+                        Turn 5:
+                        Sum = 4 <em>(+3)</em>, Elimination = 1
+
+                        ...
+
+                        Turn 11:
+                        Sum = 18 <em>(+1)</em>, Elimination = 2</code></pre>
+                    <p>Therefore, the final score is <code>18 * 2 = <em>36</em></code>.</p>
+                    <p><em>What is the final score of your fruit list?</em></p>
+                </template>
+            </problem-component>
+        </div>
+    </body>
+    <script src="../../Libraries/vue.js"></script>
+    <script src="../../Components/problem-component.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                day: 1,
+                title: "Fruit Fight",
+                p1Ans: "5033",
+                p2Ans: "7326"
+            }
+        })
+    </script>
+</html>
