@@ -14,6 +14,8 @@
             <article class="problem-list">
                 <div v-for="i in problemCount">
                     <a class="link" :href="'./Problems/Day0' + i + '/task.html'">{{i}}</a>
+                    <em v-if="starCount(i) === 2" class="star">**</em>
+                    <em v-if="starCount(i) === 1" class="star">*</em>
                 </div>
             </article>
         </div>
@@ -23,7 +25,26 @@
         var app = new Vue({
             el: "#app",
             data: {
-                problemCount: 4
+                problemCount: 4,
+                saveName: "Buck4437_AoC_Lite_2021_stars",
+                stars: {}
+            },
+            created() {
+                this.updateStar();
+                window.addEventListener('storage', this.updateStar);
+            },
+            methods: {
+                starCount(i) { return this.stars[i] || 0; },
+                updateStar() {
+                    try {
+                        this.stars = JSON.parse(localStorage.getItem(this.saveName)) || {};
+                    } catch(e) {
+                        this.stars = {};
+                    }
+                },
+                clearData() {
+                    localStorage.removeItem(this.saveName);
+                }
             }
         })
     </script>

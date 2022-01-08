@@ -20,6 +20,10 @@ article em {
     text-shadow: 0 0 5px #ffffff;
 }
 
+article .star {
+    color: #ffff00;
+}
+
 article h2 {
     color: #ffffff;
     font-size: 1em;
