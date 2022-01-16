@@ -1,0 +1,5 @@
+Day 1: Input handling/ Iteration
+Day 2: Using modulos / Number iteration / String parsing
+Day 3: Basic interpreter puzzle / ASCII
+Day 4: Basic binary number conversion
+Day 5: Interpreter / 1D transveral / 2D transveral

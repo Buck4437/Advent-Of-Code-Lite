@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,700;1,300&display=swap"
+              rel="stylesheet">
+        <link rel="stylesheet" href="../../Stylesheets/styles.css">
+        <title>Loading...</title>
+    </head>
+    <body>
+        <div id="app">
+            <problem-component :day="day" :title="title" :p1-ans="p1Ans" :p2-ans="p2Ans">
+                <template #part1>
+                    <p>After fixing your save file, you are ready to play some video games - Maze Master.</p>
+                    <p>However, your cat has decided to join the fun and started spamming random buttons on your controller, and you got lost in the maze very soon after.</p>
+                    <p>Luckily, the game records <em>your past moves</em> and display them on the side bar (your puzzle input), <em>ordered from oldest to newest</em>. You can use them to work out your position.</p>
+                    <p>In the beginning, you are located at the entrance of the maze.</p>
+                    <p>There are <em>two basic moves</em> in this game: <code>></code> and <code><</code>.</p>
+                    <ul>
+                        <li><code>></code> moves you towards the right by <code>1</code> space.</li>
+                        <li><code><</code> moves you towards the left by <code>1</code> space.</li>
+                    </ul>
+                    <p>There are also <em>two advanced moves</em> in this game: <code>>></code> and <code><<</code>. You still haven't worked out what they do, but it seems that they work as follows:</p>
+                    <ul>
+                        <li><code>>></code> moves you towards the right by <em><code>5</code></em> spaces.</li>
+                        <li><code><<</code> moves you towards the left by <em><code>5</code></em> spaces.</li>
+                    </ul>
+                    <p>To figure out your location, you need to <em>calculate the distance from the entrance by simulating the moves.</em></p>
+                    <p>Consider the following example, taking right as positive:</p>
+<pre><code>   | 0
+>  | 1
+<< | -4
+<  | -5
+>> | 0
+>  | 1
+<  | 0
+<< | -5
+<< | -10
+>  | -9
+>> | -4
+<  | -5</code></pre>
+                    <p>The distance from the entrance is <code>5</code>, taking the absolute value.</p>
+                    <p>After executing your moves, <em>what is your distance from the entrance?</em></p>
+                </template>
+                <template #part2>
+                    Content
+                </template>
+            </problem-component>
+        </div>
+    </body>
+    <script src="../../Libraries/vue.min.js"></script>
+    <script src="../../Components/problem-component.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                day: 5,
+                title: "Maze Master",
+                p1Ans: "616",
+                p2Ans: "362"
+            }
+        })
+    </script>
+</html>
