@@ -3,3 +3,4 @@ Day 2: Using modulos / Number iteration / String parsing
 Day 3: Basic interpreter puzzle / ASCII
 Day 4: Basic binary number conversion
 Day 5: Interpreter / 1D transveral / 2D transveral
+Day 6: String splitting: Into words or characters
