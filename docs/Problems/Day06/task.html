@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,700;1,300&display=swap"
+              rel="stylesheet">
+        <link rel="stylesheet" href="../../Stylesheets/styles.css">
+        <title>Loading...</title>
+    </head>
+    <body>
+        <div id="app">
+            <problem-component :day="day" :title="title" :p1-ans="p1Ans" :p2-ans="p2Ans">
+                <template #part1>
+                    Content
+                </template>
+                <template #part2>
+                    Content
+                </template>
+            </problem-component>
+        </div>
+    </body>
+    <script src="../../Libraries/vue.min.js"></script>
+    <script src="../../Components/problem-component.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                day: 6,
+                title: "Tidal",
+                p1Ans: "1",
+                p2Ans: "2"
+            }
+        })
+    </script>
+</html>

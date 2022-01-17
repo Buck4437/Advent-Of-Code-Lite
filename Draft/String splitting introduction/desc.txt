@@ -1,9 +1,11 @@
 Objective: splitting string
 
-Input: a single, long string of addition
+Input: a list of words
 
 Part 1:
-Calculate the result of the sum (Splitting '+')
+Split by space, how many words contain "0"?
 
 Part 2:
-Calculate the sum of all digits (Splitting char)
+Split by character, how many "0"s are present in the entire word list?
+
+// Need redo
