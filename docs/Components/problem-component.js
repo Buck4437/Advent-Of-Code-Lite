@@ -26,7 +26,6 @@ Vue.component("problem-component", {
                 this.submit();
             }
         });
-        this.$refs.input.focus();
     },
     watch: {
         stars(star) {
