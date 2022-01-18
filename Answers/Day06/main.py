@@ -1,10 +1,12 @@
 with open("input.txt") as f:
-    wds = f.read().split("-")
+    fmlas = f.read().split("\n")
 
-ct = 0
-for wd in wds:
-    if wd[-1] == "0":
-        print(wd)
-        ct += 1
-
-print("Total:", ct)
+sm = tot = 0
+for fmla in fmlas:
+    nums = fmla.split(",")
+    sm += int(nums[2])
+    tmp = 1
+    for num in nums:
+        tmp *= int(num)
+    tot += tmp
+print(sm, tot)
