@@ -13,13 +13,13 @@
         <div id="app">
             <problem-component :day="day" :title="title" :p1-ans="p1Ans" :p2-ans="p2Ans">
                 <template #part1>
-                    <p>Time for work! You have volunteered to import some ice blocks for santa claus so that he can build an igloo.</p>
-                    <p>He has sent a list of dimensions of ice blocks that he needed to build an igloo (your puzzle input). The dimensions of the ice blocks are expressed like this:</p>
+                    <p>Time for work! You have volunteered to import some ice blocks for Santa Claus so that he can build an igloo.</p>
+                    <p>He has sent you a list of <em>dimensions</em> of ice blocks required to build an igloo (your puzzle input). The dimensions of the ice blocks are expressed like this:</p>
                     <code>l,w,h</code>
                     <p>Where <code>l</code> is the length, <code>w</code> is the width, and <code>h</code> is the height.</p>
                     <p>For example, <code>2,3,10</code> represents an ice block with length <code>2</code>, width <code>3</code>, and height <code>10</code>.</p>
                     <p>You need to estimate the <em>cost of the ice blocks</em> to ensure that it stays within your budget limit. Your intuition tells you that the cost of the ice blocks is roughly equals to the <em>sum of the heights</em> of the ice blocks.</p>
-                    <p>Here is a list of ice blocks:</p>
+                    <p>For example, here is a list of ice blocks:</p>
 <pre><code>10,5,1
 7,9,8
 1,6,7
@@ -40,18 +40,7 @@
                         <li>An ice block with dimension <code>7,1,5</code> has a volume of <code>35</code>.</li>
                         <li>An ice block with dimension <code>10,5,4</code> has a volume of <code>200</code>.</li>
                     </ul>
-                    <p>Consider this list of ice blocks again:</p>
-<pre><code>10,5,1
-7,9,8
-1,6,7
-2,9,8
-2,1,9
-9,2,1
-5,7,6
-2,7,10
-9,2,9
-1,1,10</code></pre>
-                    <p>The total volume of this list of ice blocks is <code><em>1298</em></code>.</p>
+                    <p>Using the above list again, the total volume of this list of ice blocks is <code><em>1298</em></code>.</p>
                     <p><em>What is the total volume of your list of ice blocks?</em></p>
                 </template>
             </problem-component>
