@@ -35,6 +35,17 @@ inc
 dbl
 dbl
 dbl</code></pre>
+                    <p>These instructions will change the value stored in the bootloader in the following ways:</p>
+                    <pre><code>      Value
+inc | 1 (+1)
+inc | 2 (+1)
+dbl | 4 (x2)
+dbl | 8 (x2)
+inc | 9 (+1)
+inc | 10 (+1)
+dbl | 20 (x2)
+dbl | 40 (x2)
+dbl | 80 (x2)</code></pre>
                     <p>After executing, the checksum returned is <code>80</code>.</p>
                     <p>Run the reboot program with the bootloader. <em>What is the checksum of your reboot program?</em></p>
                 </template>

@@ -18,4 +18,4 @@ for cmd in cmds:
         y2 -= 1
 
 print(x, x2, y2)
-print(abs(x), abs(x2) + abs(y2))
+print(abs(x), abs(x2) + abs(y2) * 1000)

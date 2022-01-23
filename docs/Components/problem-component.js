@@ -26,7 +26,6 @@ Vue.component("problem-component", {
                 this.submit();
             }
         });
-        this.$refs.input.focus();
     },
     watch: {
         stars(star) {
@@ -84,7 +83,7 @@ Vue.component("problem-component", {
         <div v-if="stars === 2">
             <p>Your puzzle answer was <code>{{p2Ans}}</code>.</p>
             <p><em class="star">Both parts of this puzzle are complete! They provide two gold stars: **</em></p>
-            <p>At this point, you should <a class="link" href="../index.html">return to your Advent calendar</a> and try another puzzle.</p>
+            <p>At this point, you should <a class="link" href="../../index.html">return to your Advent calendar</a> and try another puzzle.</p>
             <p>If you still want to see it, you can <a class="link" href="./input.html" target="_blank">get your puzzle input</a>.</p>
         </div>
     </article>`

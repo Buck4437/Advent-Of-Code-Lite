@@ -1,0 +1,3 @@
+Name: Notepad Simulator 20XX
+
+Input: A list of keyboard input (letters), ctrl key, backspace, enter
