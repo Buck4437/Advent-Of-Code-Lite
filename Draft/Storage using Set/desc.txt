@@ -1,4 +1,4 @@
-Objective: Using arraylist or hashset to store objects
+Objective: Using sets to store objects
 Input: A list of numbers, with some repeated
 
 Part 1:

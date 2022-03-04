@@ -1,7 +1,6 @@
 import random
 
 random.seed(59729)
-# random.seed(34893749)
 
 nums = []
 

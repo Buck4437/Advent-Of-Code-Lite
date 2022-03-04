@@ -104,3 +104,10 @@ li {
     padding-left: 2.5em;
     position: relative;
 }
+
+.puzzle-input {
+	border: 1px solid #999999;
+	background: #333333;
+	color: #ffffff;
+	text-shadow: 0 0 5px #ffffff;
+}

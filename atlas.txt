@@ -2,5 +2,16 @@ Day 1: Input handling/ Iteration
 Day 2: Using modulos / Number iteration / String parsing
 Day 3: Basic interpreter puzzle / ASCII
 Day 4: Basic binary number conversion
-Day 5: Interpreter / 1D transveral / 2D transveral
+Day 5: Interpreter / 1D transversal / 2D transversal
 Day 6: String splitting: Into words or characters
+
+----- Scheduled ------
+Day 7: Slightly harder interpreter puzzle, involving the use of a memory (aka an array)
+Day 8: Coordinates
+Day 9: Map
+Day 10: Packet simulation / Sorting
+Day 11: Optimization
+Day 12: Set
+Day 13: String search / Split between characters
+Day 14: 2D graphs
+Day 15: Yet another simulation puzzle

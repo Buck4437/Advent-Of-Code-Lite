@@ -1,0 +1,16 @@
+Array:
+Condense a sequence
+Part 1:
+
+
+Part 2:
+
+
+
+Map:
+
+
+Example:
+
+Apple: 10
+Orange: 20
